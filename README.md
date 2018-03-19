@@ -1,8 +1,49 @@
 
-# Mortgage Amortization plots
+# Mortgage Amortization Class with Examples
 
-This notebook makes use of the mortgage class I wrote to compute monthly paymens to interest and principal over a life of a loan given the loan amount, rate and either the monthly payment amount of months to pay the loan
+This notebook makes use of the mortgage class I wrote to compute monthly payments to interest and principal over the life of a loan given the loan amount, rate and either the monthly payment amount or number of months to pay the loan
 
+You can instantiate the **mortgage class** in two ways:
+
+1. Providing the initial principal, anual interest rate and monthly payment:
+```
+from mortgage import mortgage
+
+principal = 100000
+rate = 4.25
+monthly = 1500
+
+mort_instance = mortgage.Mortgage(principal, rate, monthly)
+
+```
+2. Providing the initial principal, anual interest rate and total number of payments:
+```
+no_payments = 450
+
+mort_instance = mortgage.Mortgage.calculatePayment(principal, rate, no_payments)
+
+```
+
+Either instance gives you access to the same methods:
+
+**monthly_int_part:**
+* Returns a numpy array with monthly contribution to interest
+
+**monthly_prin_part:**
+* Returns a numpy array with monthly contribution to principal
+
+**total_int:**
+* Returns a total interest paid over the life of the loan
+
+**total_princ:**
+* Returns a total principal paid over the life of the loan
+
+**total:**
+* Returns a total  paid over the life of the loan
+
+If the user provides initial instance values that result in a mortgage impossible to re-pay, then the class throws a *LowPaymentError* exception
+
+# Examples
 
 ```python
 import numpy as np
