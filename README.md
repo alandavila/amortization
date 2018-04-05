@@ -6,7 +6,7 @@ This notebook makes use of the mortgage class I wrote to compute monthly payment
 You can instantiate the **mortgage class** in two ways:
 
 1. Providing the initial principal, anual interest rate and monthly payment:
-```
+```Python
 from mortgage import mortgage
 
 principal = 100000
@@ -17,7 +17,7 @@ mort_instance = mortgage.Mortgage(principal, rate, monthly)
 
 ```
 2. Providing the initial principal, anual interest rate and total number of payments:
-```
+```Python
 no_payments = 450
 
 mort_instance = mortgage.Mortgage.calculatePayment(principal, rate, no_payments)
